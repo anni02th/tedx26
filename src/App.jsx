@@ -5,6 +5,7 @@ import RopeDivider from './components/RopeDivider';
 import About from './components/About';
 import Countdown from './components/Countdown';
 import Speakers from './components/Speakers';
+import Tickets from './components/Tickets';
 import Timeline from './components/Timeline';
 import VideoSection from './components/VideoSection';
 import PastEvents from './components/PastEvents';
@@ -89,6 +90,7 @@ function App() {
           } />
 
           <Route path="/committee" element={<Committee />} />
+          <Route path="/ticketing" element={<Tickets />} />
         </Routes>
       </div>
     </Router>

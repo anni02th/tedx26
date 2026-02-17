@@ -141,9 +141,10 @@ const Navbar = () => {
                </Link>
 
                {/* CTA Button */}
+               {/* CTA Button */}
                <a
                   href="https://konfhub.com/tedxkkwieer"
-                  className="px-6 py-2 border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-black transition-all duration-300 uppercase text-xs font-bold tracking-widest rounded-sm"
+                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-2 rounded font-bold uppercase tracking-widest hover:from-orange-700 hover:to-red-700 transition-all shadow-[0_0_15px_rgba(255,69,0,0.5)] hover:shadow-[0_0_25px_rgba(255,69,0,0.8)] text-sm"
                >
                   Get Tickets
                </a>
@@ -230,8 +231,8 @@ const Navbar = () => {
                </Link>
                <a
                   href="https://konfhub.com/tedxkkwieer"
-                  className="px-8 py-3 bg-orange-500 text-black font-bold uppercase tracking-widest mt-4"
                   onClick={() => setIsOpen(false)}
+                  className="px-8 py-3 bg-orange-500 text-black font-bold uppercase tracking-widest mt-4"
                >
                   Get Tickets
                </a>

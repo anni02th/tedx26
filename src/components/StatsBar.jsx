@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const StatsBar = () => {
    return (
@@ -26,8 +27,7 @@ const StatsBar = () => {
             </motion.div>
 
             {/* Center Big Button */}
-            <motion.a
-               href="https://konfhub.com/tedxkkwieer"
+            <Link to="/ticketing"
                initial={{ scale: 0.8, opacity: 0 }}
                whileInView={{ scale: 1, opacity: 1 }}
                whileHover={{ scale: 1.05 }}
@@ -41,7 +41,7 @@ const StatsBar = () => {
                <span className="text-xs font-bold text-black/60 uppercase tracking-[0.2em] mt-1 bg-white/20 px-2 py-0.5 rounded">
                   Limited Tickets
                </span>
-            </motion.a>
+            </Link>
 
             {/* Right Stats Group */}
             <motion.div

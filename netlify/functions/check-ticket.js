@@ -25,7 +25,8 @@ export const handler = async (event, context) => {
       const response = await fetch(url, {
          method: "GET", // Explicitly GET
          headers: {
-            "x-api-key": API_KEY,
+            "x-api-key": API_KEY, // Primary method
+            "Authorization": API_KEY, // Fallback method
             "bg_color": "#000000",
             "Content-Type": "application/json",
             "User-Agent": "Netlify-Function/1.0"

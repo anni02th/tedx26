@@ -12,7 +12,7 @@ export const handler = async (event, context) => {
 
    // API Configuration
    const API_KEY = "23751c8e-f8bf-47fa-b0d8-ce9fd5ce1204";
-   const EVENT_ID = "tedxkkwieer"; // Assuming slug is the ID based on widget URL
+   const EVENT_ID = "fb8a0c98-b807-4e9e-a218-d60f84aa1564"; // UUID from KonfHub Page Source
    const BASE_URL = `https://api.konfhub.com/developers/event/${EVENT_ID}/attendees/private`;
 
    let searchParam = "";

@@ -23,17 +23,21 @@ export const handler = async (event, context) => {
 
    try {
       const response = await fetch(url, {
+         method: "GET", // Explicitly GET
          headers: {
             "x-api-key": API_KEY,
-            "bg_color": "#000000" // Sometimes required/optional
+            "bg_color": "#000000",
+            "Content-Type": "application/json",
+            "User-Agent": "Netlify-Function/1.0"
          }
       });
 
       if (!response.ok) {
-         console.error("KonfHub API Error:", response.status, response.statusText);
+         const errorText = await response.text();
+         console.error("KonfHub API Error:", response.status, errorText);
          return {
             statusCode: response.status,
-            body: JSON.stringify({ error: "Failed to fetch ticket details or attendee not found." })
+            body: JSON.stringify({ error: "KonfHub API Error", details: errorText })
          };
       }
 

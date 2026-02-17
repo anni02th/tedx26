@@ -142,12 +142,13 @@ const Navbar = () => {
 
                {/* CTA Button */}
                {/* CTA Button */}
-               <a
-                  href="https://konfhub.com/tedxkkwieer"
+               {/* CTA Button */}
+               <Link
+                  to="/ticketing"
                   className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-2 rounded font-bold uppercase tracking-widest hover:from-orange-700 hover:to-red-700 transition-all shadow-[0_0_15px_rgba(255,69,0,0.5)] hover:shadow-[0_0_25px_rgba(255,69,0,0.8)] text-sm"
                >
                   Get Tickets
-               </a>
+               </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -229,13 +230,13 @@ const Navbar = () => {
                >
                   Committee
                </Link>
-               <a
-                  href="https://konfhub.com/tedxkkwieer"
+               <Link
+                  to="/ticketing"
                   onClick={() => setIsOpen(false)}
                   className="px-8 py-3 bg-orange-500 text-black font-bold uppercase tracking-widest mt-4"
                >
                   Get Tickets
-               </a>
+               </Link>
             </div>
          )}
       </nav>

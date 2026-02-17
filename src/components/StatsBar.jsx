@@ -27,21 +27,26 @@ const StatsBar = () => {
             </motion.div>
 
             {/* Center Big Button */}
-            <Link to="/ticketing"
+            {/* Center Big Button */}
+            <motion.div
                initial={{ scale: 0.8, opacity: 0 }}
                whileInView={{ scale: 1, opacity: 1 }}
                whileHover={{ scale: 1.05 }}
                whileTap={{ scale: 0.95 }}
                transition={{ type: "spring", stiffness: 200, damping: 15 }}
-               className="relative z-30 w-full md:w-auto px-12 py-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl md:rounded-3xl shadow-[0_0_40px_rgba(255,69,0,0.5)] flex flex-col items-center justify-center cursor-pointer group my-[-10px] md:my-0 md:mx-[-10px]"
+               className="relative z-30 w-full md:w-auto my-[-10px] md:my-0 md:mx-[-10px]"
             >
-               <span className="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter leading-none group-hover:text-yellow-200 transition-colors">
-                  Book Your Seat
-               </span>
-               <span className="text-xs font-bold text-black/60 uppercase tracking-[0.2em] mt-1 bg-white/20 px-2 py-0.5 rounded">
-                  Limited Tickets
-               </span>
-            </Link>
+               <Link to="/ticketing"
+                  className="px-12 py-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl md:rounded-3xl shadow-[0_0_40px_rgba(255,69,0,0.5)] flex flex-col items-center justify-center cursor-pointer group w-full"
+               >
+                  <span className="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter leading-none group-hover:text-yellow-200 transition-colors">
+                     Book Your Seat
+                  </span>
+                  <span className="text-xs font-bold text-black/60 uppercase tracking-[0.2em] mt-1 bg-white/20 px-2 py-0.5 rounded">
+                     Limited Tickets
+                  </span>
+               </Link>
+            </motion.div>
 
             {/* Right Stats Group */}
             <motion.div

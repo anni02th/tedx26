@@ -1,13 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import MyTicket from './MyTicket';
 
 const Tickets = () => {
+   const [apiStatus, setApiStatus] = useState('checking'); // 'checking', 'online', 'offline'
+
+   useEffect(() => {
+      fetch('/.netlify/functions/health-check')
+         .then(async (res) => {
+            const isJson = res.headers.get('content-type')?.includes('application/json');
+            if (res.ok && isJson) {
+               setApiStatus('online');
+            } else {
+               setApiStatus('offline');
+            }
+         })
+         .catch(() => setApiStatus('offline'));
+   }, []);
+
    return (
       <>
          <Navbar />
-         <div className="bg-black min-h-screen text-white pt-24">
+         <div className="bg-black min-h-screen text-white pt-24 relative">
+            {/* API Status Indicator */}
+            <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 bg-zinc-900 border border-white/10 px-3 py-1.5 rounded-full shadow-lg opacity-50 hover:opacity-100 transition-opacity cursor-help" title="Netlify Function Status">
+               <div className={`w-2 h-2 rounded-full ${apiStatus === 'online' ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]' : apiStatus === 'offline' ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]' : 'bg-yellow-500 animate-pulse'}`}></div>
+               <span className="text-[10px] font-mono uppercase tracking-wider text-gray-400">
+                  API: {apiStatus}
+               </span>
+            </div>
+
             <section className="py-12 relative">
                <div className="max-w-7xl mx-auto px-6">
                   <motion.div
@@ -48,25 +72,13 @@ const Tickets = () => {
                         allow="camera; microphone; payment"
                      ></iframe>
                   </motion.div>
-
-                  {/* Fallback / Direct Link */}
-                  <div className="text-center mt-12 mb-12">
-                     <p className="text-gray-500 text-sm mb-4">Having trouble with the widget?</p>
-                     <a
-                        href="https://konfhub.com/tedxkkwieer"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-8 py-3 bg-white/5 border border-white/10 hover:bg-orange-600 hover:border-orange-500 text-white font-bold uppercase tracking-widest text-xs transition-all duration-300 rounded"
-                     >
-                        Buy Directly on KonfHub
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                     </a>
-                  </div>
                </div>
 
                {/* Background Texture */}
                <div className="absolute inset-0 pointer-events-none opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
             </section>
+
+            <MyTicket />
          </div>
          <Footer />
       </>
